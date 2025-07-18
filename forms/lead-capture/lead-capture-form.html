@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Start Your Quantum Journey - NanoSchool</title>
+  <meta name="description" content="Complete your enrollment and start learning quantum computing with NanoSchool's personalized program." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Space Grotesk', sans-serif; background: #f9f9ff; }
+    .gradient-bg { background: linear-gradient(135deg, #5e35b1 0%, #3949ab 100%); }
+  </style>
+</head>
+<body>
+  <nav class="gradient-bg text-white shadow-lg fixed w-full z-50">
+    <div class="container mx-auto px-6 py-3">
+      <div class="flex justify-between items-center">
+        <a href="/pages/quantum/homepage.html" class="flex items-center">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/92bb1cbf-1640-4e65-8441-b0cf46564370.png" alt="NanoSchool Quantum logo" class="h-10 w-10" />
+          <span class="text-xl font-bold ml-2">Quantum @ NanoSchool</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="pt-32 pb-20 gradient-bg text-white px-4">
+    <div class="container mx-auto text-center">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6">Complete Your Enrollment</h1>
+      <p class="text-xl max-w-2xl mx-auto">Finalize your details to start your personalized quantum learning path</p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 max-w-2xl">
+      <div id="personalized-plan" class="mb-8 bg-gray-50 p-6 rounded-lg border border-gray-200">
+        <h3 class="text-xl font-bold mb-4">Your Selected Learning Path</h3>
+        <div id="plan-content"></div>
+      </div>
+
+      <form id="leadCaptureForm" class="space-y-6" novalidate>
+        <div id="form-errors" class="hidden p-4 bg-red-50 text-red-700 rounded-lg mb-6">
+          <h3 class="font-bold mb-2">Please fix these issues:</h3>
+          <ul id="error-list" class="list-disc pl-5 space-y-1"></ul>
+        </div>
+
+        <div>
+          <label class="block font-semibold mb-2">Full Name</label>
+          <input type="text" name="fullname" required 
+                 class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+        </div>
+
+        <div>
+          <label class="block font-semibold mb-2">Phone Number</label>
+          <input type="tel" name="phone" required 
+                 class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+        </div>
+
+        <div>
+          <label class="block font-semibold mb-2">Country</label>
+          <select name="country" required 
+                  class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            <option value="">Select your country</option>
+            <option value="IN">India</option>
+            <option value="US">United States</option>
+            <option value="UK">United Kingdom</option>
+            <option value="CA">Canada</option>
+            <option value="AU">Australia</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-semibold mb-2">Payment Method</label>
+          <select name="payment" required 
+                  class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            <option value="">Select payment method</option>
+            <option value="credit-card">Credit Card</option>
+            <option value="debit-card">Debit Card</option>
+            <option value="upi">UPI</option>
+            <option value="net-banking">Net Banking</option>
+          </select>
+        </div>
+
+        <button type="submit" class="w-full gradient-bg text-white py-3 rounded-lg font-bold hover:opacity-90 transition flex items-center justify-center">
+          <span id="submit-text">Complete Enrollment</span>
+          <svg id="submit-spinner" class="hidden w-5 h-5 ml-2 text-white animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <script src="/js/lead-capture.js"></script>
+</body>
+</html>
