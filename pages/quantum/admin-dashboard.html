@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Dashboard - Quantum NanoSchool</title>
+  <meta name="description" content="Advanced admin dashboard with analytics, user management, and remarketing tools." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Space Grotesk', sans-serif; background: #f9f9ff; }
+    .gradient-bg { background: linear-gradient(135deg, #5e35b1 0%, #3949ab 100%); }
+    .admin-card { transition: all 0.3s ease; }
+    .admin-card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="gradient-bg text-white shadow-lg">
+    <div class="container mx-auto px-6 py-3">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/92bb1cbf-1640-4e65-8441-b0cf46564370.png" alt="NanoSchool Quantum logo" class="h-10 w-10" />
+          <span class="text-xl font-bold">Admin Dashboard</span>
+        </div>
+        <div class="flex items-center space-x-6">
+          <div class="flex items-center space-x-2">
+            <img id="adminAvatar" src="https://ui-avatars.com/api/?name=Admin&background=ff6b6b&color=fff" alt="Admin Avatar" class="w-8 h-8 rounded-full" />
+            <span id="adminName" class="font-medium">Admin</span>
+          </div>
+          <button onclick="logout()" class="text-yellow-200 hover:text-white">
+            <i class="fas fa-sign-out-alt mr-1"></i> Logout
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sidebar -->
+  <div class="flex">
+    <aside class="w-64 bg-white shadow-lg min-h-screen">
+      <nav class="mt-8">
+        <div class="px-4 space-y-2">
+          <a href="#overview" class="flex items-center px-4 py-2 text-gray-700 bg-gray-100 rounded-lg">
+            <i class="fas fa-chart-pie mr-3"></i> Overview
+          </a>
+          <a href="#users" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+            <i class="fas fa-users mr-3"></i> Users
+          </a>
+          <a href="#courses" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+            <i class="fas fa-book mr-3"></i> Courses
+          </a>
+          <a href="#analytics" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+            <i class="fas fa-chart-line mr-3"></i> Analytics
+          </a>
+          <a href="#remarketing" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+            <i class="fas fa-envelope mr-3"></i> Remarketing
+          </a>
+          <a href="#settings" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+            <i class="fas fa-cog mr-3"></i> Settings
+          </a>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8">
+      <!-- Overview Section -->
+      <div id="overview-section">
+        <div class="mb-8">
+          <h1 class="text-3xl font-bold text-gray-900 mb-2">Admin Dashboard</h1>
+          <p class="text-gray-600">Comprehensive analytics and management tools</p>
+        </div>
+
+        <!-- Key Metrics -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div class="bg-white rounded-lg shadow-md p-6 admin-card">
+            <div class="flex items-center">
+              <div class="text-blue-600 mr-4">
+                <i class="fas fa-users fa-2x"></i>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-gray-900" id="totalUsers">0</h3>
+                <p class="text-gray-600">Total Users</p>
+                <p class="text-sm text-green-600">+12% this month</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-md p-6 admin-card">
+            <div class="flex items-center">
+              <div class="text-green-600 mr-4">
+                <i class="fas fa-graduation-cap fa-2x"></i>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-gray-900" id="activeEnrollments">0</h3>
+                <p class="text-gray-600">Active Enrollments</p>
+                <p class="text-sm text-green-600">+8% this week</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-md p-6 admin-card">
+            <div class="flex items-center">
+              <div class="text-purple-600 mr-4">
+                <i class="fas fa-dollar-sign fa-2x"></i>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-gray-900" id="totalRevenue">₹0</h3>
+                <p class="text-gray-600">Total Revenue</p>
+                <p class="text-sm text-green-600">+15% this month</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-md p-6 admin-card">
+            <div class="flex items-center">
+              <div class="text-yellow-600 mr-4">
+                <i class="fas fa-chart-line fa-2x"></i>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-gray-900" id="conversionRate">0%</h3>
+                <p class="text-gray-600">Conversion Rate</p>
+                <p class="text-sm text-red-600">-2% this week</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-xl font-bold mb-4">User Growth</h2>
+            <canvas id="userGrowthChart" width="400" height="200"></canvas>
+          </div>
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-xl font-bold mb-4">Revenue Analytics</h2>
+            <canvas id="revenueChart" width="400" height="200"></canvas>
+          </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-xl font-bold mb-4">Recent Activity</h2>
+          <div id="recentActivityList" class="space-y-4">
+            <!-- Dynamic content will be loaded here -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Users Section -->
+      <div id="users-section" class="hidden">
+        <div class="mb-8">
+          <h1 class="text-3xl font-bold text-gray-900 mb-2">User Management</h1>
+          <div class="flex justify-between items-center">
+            <p class="text-gray-600">Manage users, roles, and permissions</p>
+            <button class="gradient-bg text-white px-4 py-2 rounded-lg font-semibold">Add New User</button>
+          </div>
+        </div>
+
+        <!-- User Filters -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <input type="text" placeholder="Search users..." class="p-3 border border-gray-300 rounded-lg" />
+            <select class="p-3 border border-gray-300 rounded-lg">
+              <option>All Roles</option>
+              <option>Students</option>
+              <option>Mentors</option>
+              <option>Admins</option>
+            </select>
+            <select class="p-3 border border-gray-300 rounded-lg">
+              <option>All Status</option>
+              <option>Active</option>
+              <option>Inactive</option>
+              <option>Suspended</option>
+            </select>
+            <button class="gradient-bg text-white px-4 py-2 rounded-lg font-semibold">Filter</button>
+          </div>
+        </div>
+
+        <!-- Users Table -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <table class="w-full">
+            <thead class="bg-gray-50">
+              <tr>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">User</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Role</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Last Active</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="usersTableBody" class="divide-y divide-gray-200">
+              <!-- Dynamic content will be loaded here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Remarketing Section -->
+      <div id="remarketing-section" class="hidden">
+        <div class="mb-8">
+          <h1 class="text-3xl font-bold text-gray-900 mb-2">Remarketing & Email Campaigns</h1>
+          <p class="text-gray-600">Automated email campaigns and user engagement</p>
+        </div>
+
+        <!-- Campaign Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-lg font-semibold mb-2">Email Campaigns</h3>
+            <p class="text-3xl font-bold text-blue-600" id="totalCampaigns">0</p>
+            <p class="text-sm text-gray-600">Active campaigns</p>
+          </div>
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-lg font-semibold mb-2">Open Rate</h3>
+            <p class="text-3xl font-bold text-green-600" id="openRate">0%</p>
+            <p class="text-sm text-gray-600">Average open rate</p>
+          </div>
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-lg font-semibold mb-2">Click Rate</h3>
+            <p class="text-3xl font-bold text-purple-600" id="clickRate">0%</p>
+            <p class="text-sm text-gray-600">Average click rate</p>
+          </div>
+        </div>
+
+        <!-- Campaign Management -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-bold">Email Campaigns</h2>
+            <button onclick="createCampaign()" class="gradient-bg text-white px-4 py-2 rounded-lg font-semibold">Create Campaign</button>
+          </div>
+          <div id="campaignsList" class="space-y-4">
+            <!-- Dynamic campaigns will be loaded here -->
+          </div>
+        </div>
+
+        <!-- SES Integration Status -->
+        <div class="bg-white rounded-lg shadow-md p-6">
+          <h2 class="text-xl font-bold mb-4">SES Integration Status</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h3 class="font-semibold mb-2">Configuration</h3>
+              <div class="space-y-2">
+                <div class="flex justify-between">
+                  <span>SES Status:</span>
+                  <span class="text-green-600 font-semibold">Connected</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Daily Send Quota:</span>
+                  <span>10,000 emails</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Send Rate:</span>
+                  <span>14 emails/second</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-semibold mb-2">Today's Stats</h3>
+              <div class="space-y-2">
+                <div class="flex justify-between">
+                  <span>Emails Sent:</span>
+                  <span id="emailsSent">0</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Bounces:</span>
+                  <span id="emailBounces">0</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Complaints:</span>
+                  <span id="emailComplaints">0</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Campaign Creation Modal -->
+  <div id="campaignModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white rounded-lg p-8 max-w-2xl w-full mx-4 max-h-screen overflow-y-auto">
+      <h2 class="text-2xl font-bold mb-6">Create Email Campaign</h2>
+      <form id="campaignForm" class="space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block font-semibold mb-2">Campaign Name</label>
+            <input type="text" name="name" required class="w-full p-3 border border-gray-300 rounded-lg" />
+          </div>
+          <div>
+            <label class="block font-semibold mb-2">Campaign Type</label>
+            <select name="type" required class="w-full p-3 border border-gray-300 rounded-lg">
+              <option value="">Select type</option>
+              <option value="welcome">Welcome Series</option>
+              <option value="course-reminder">Course Reminder</option>
+              <option value="re-engagement">Re-engagement</option>
+              <option value="promotional">Promotional</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label class="block font-semibold mb-2">Target Audience</label>
+          <select name="audience" required class="w-full p-3 border border-gray-300 rounded-lg">
+            <option value="">Select audience</option>
+            <option value="all-users">All Users</option>
+            <option value="inactive-users">Inactive Users</option>
+            <option value="course-incomplete">Course Incomplete</option>
+            <option value="high-engagement">High Engagement</option>
+          </select>
+        </div>
+        <div>
+          <label class="block font-semibold mb-2">Email Subject</label>
+          <input type="text" name="subject" required class="w-full p-3 border border-gray-300 rounded-lg" />
+        </div>
+        <div>
+          <label class="block font-semibold mb-2">Email Content</label>
+          <textarea name="content" rows="6" required class="w-full p-3 border border-gray-300 rounded-lg"></textarea>
+        </div>
+        <div class="flex space-x-3">
+          <button type="submit" class="flex-1 gradient-bg text-white py-3 rounded-lg font-semibold">Create Campaign</button>
+          <button type="button" onclick="closeCampaignModal()" class="flex-1 bg-gray-300 text-gray-700 py-3 rounded-lg font-semibold">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/auth.js"></script>
+  <script src="/js/admin-dashboard.js"></script>
+</body>
+</html>
