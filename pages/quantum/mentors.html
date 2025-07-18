@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Top Quantum Computing Mentors at Nanoschool - 2025 Guide</title>
+  <meta name="description" content="Meet the best quantum computing mentors at Nanoschool. Learn from experts and advance your quantum computing career in 2025." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="/css/components/header.css" rel="stylesheet" />
+  <link href="/css/components/navbar.css" rel="stylesheet" />
+  <link href="/css/components/footer.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fff;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    h1 {
+      font-weight: 600;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #000;
+      padding-bottom: 0.5rem;
+    }
+    .mentor-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .mentor-card {
+      border: 1px solid #ddd;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      background-color: #f9f9f9;
+    }
+    .mentor-name {
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .mentor-expertise {
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+    .mentor-bio {
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="header-container"></div>
+  <div id="navbar-container"></div>
+  <main>
+    <h1>Top Quantum Computing Mentors at Nanoschool</h1>
+    <div id="mentors-list" class="mentor-list"></div>
+  </main>
+  <div id="footer-container"></div>
+  <script src="/js/loadComponents.js"></script>
+  <script src="/js/display-mentors.js"></script>
+  <script>
+    loadComponents();
+    displayMentors('mentors-list');
+  </script>
+</body>
+</html>
