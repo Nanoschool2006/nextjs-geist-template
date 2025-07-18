@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Course Generation Form - Quantum Domain</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="/css/components/form.css" rel="stylesheet" />
+</head>
+<body class="bg-white font-sans p-8">
+  <h1 class="text-3xl font-bold mb-6 text-center">Course Generation Form</h1>
+  <form id="courseForm" class="max-w-lg mx-auto space-y-6" action="#" method="POST">
+    <div>
+      <label for="title" class="block font-semibold mb-1">Course Title</label>
+      <input type="text" id="title" name="title" required class="w-full border border-gray-300 rounded px-3 py-2" />
+    </div>
+    <div>
+      <label for="description" class="block font-semibold mb-1">Course Description</label>
+      <textarea id="description" name="description" rows="4" required class="w-full border border-gray-300 rounded px-3 py-2"></textarea>
+    </div>
+    <div>
+      <label for="mentor" class="block font-semibold mb-1">Mentor</label>
+      <input type="text" id="mentor" name="mentor" required class="w-full border border-gray-300 rounded px-3 py-2" />
+    </div>
+    <div>
+      <label for="seoKeywords" class="block font-semibold mb-1">SEO Keywords</label>
+      <input type="text" id="seoKeywords" name="seoKeywords" placeholder="Comma separated keywords" class="w-full border border-gray-300 rounded px-3 py-2" />
+    </div>
+    <div>
+      <label for="testimonial" class="block font-semibold mb-1">Testimonial</label>
+      <textarea id="testimonial" name="testimonial" rows="3" class="w-full border border-gray-300 rounded px-3 py-2"></textarea>
+    </div>
+    <div>
+      <button type="submit" class="bg-black text-white px-6 py-3 rounded font-semibold hover:bg-gray-800">Submit</button>
+    </div>
+  </form>
+  <script src="/js/display-courses.js"></script>
+  <script>
+    document.getElementById('courseForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const title = document.getElementById('title').value.trim();
+      const description = document.getElementById('description').value.trim();
+      const mentor = document.getElementById('mentor').value.trim();
+      const seoKeywords = document.getElementById('seoKeywords').value.trim();
+      const testimonial = document.getElementById('testimonial').value.trim();
+
+      if (!title || !description || !mentor) {
+        alert('Please fill in the required fields: Title, Description, Mentor.');
+        return;
+      }
+
+      const newCourse = { title, description, mentor, seoKeywords, testimonial };
+      addCourse(newCourse);
+
+      alert('Course added successfully!');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
