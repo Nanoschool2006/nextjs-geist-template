@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quantum Workshops - NanoSchool</title>
+  <meta name="description" content="Join intensive quantum computing workshops led by industry experts. Hands-on learning with real quantum systems." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Space Grotesk', sans-serif; background: #f9f9ff; }
+    .gradient-bg { background: linear-gradient(135deg, #5e35b1 0%, #3949ab 100%); }
+    .workshop-card { transition: all 0.3s ease; }
+    .workshop-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+  </style>
+</head>
+<body>
+  <nav class="gradient-bg text-white shadow-lg fixed w-full z-50">
+    <div class="container mx-auto px-6 py-3">
+      <div class="flex justify-between items-center">
+        <a href="/pages/quantum/homepage.html" class="flex items-center">
+          <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/92bb1cbf-1640-4e65-8441-b0cf46564370.png" alt="NanoSchool Quantum logo" class="h-10 w-10" />
+          <span class="text-xl font-bold ml-2">Quantum @ NanoSchool</span>
+        </a>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="/pages/quantum/homepage.html" class="hover:text-yellow-200">Home</a>
+          <a href="/pages/quantum/courses.html" class="hover:text-yellow-200">Courses</a>
+          <a href="/pages/quantum/mentors.html" class="hover:text-yellow-200">Mentors</a>
+          <a href="/pages/quantum/testimonials.html" class="hover:text-yellow-200">Testimonials</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="pt-32 pb-20 gradient-bg text-white px-4">
+    <div class="container mx-auto text-center">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6">Quantum Computing Workshops</h1>
+      <p class="text-xl max-w-2xl mx-auto">Intensive hands-on workshops to accelerate your quantum learning journey</p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-blue-900 mb-4">Upcoming Workshops</h2>
+        <p class="text-xl max-w-2xl mx-auto">Learn from quantum experts in small, focused groups</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <!-- Workshop 1 -->
+        <div class="bg-gray-50 p-6 rounded-xl border-l-4 border-blue-600 workshop-card">
+          <div class="flex justify-between mb-4">
+            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">August 12-13</span>
+            <span class="text-yellow-600 font-bold">₹4,999</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Introduction to Qiskit</h3>
+          <p class="text-gray-600 mb-4">Two-day intensive workshop on IBM's Qiskit framework for quantum programming.</p>
+          <div class="mb-4">
+            <h4 class="font-semibold mb-2">What you'll learn:</h4>
+            <ul class="text-sm text-gray-600 space-y-1">
+              <li>• Quantum circuit design</li>
+              <li>• Running on real quantum hardware</li>
+              <li>• Quantum algorithm implementation</li>
+            </ul>
+          </div>
+          <div class="flex justify-between items-center">
+            <div class="flex items-center text-sm text-gray-500">
+              <i class="fas fa-user-tie mr-1"></i>
+              <span>Dr. Priya Sharma</span>
+            </div>
+            <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition" onclick="registerWorkshop('qiskit-intro')">Register</button>
+          </div>
+        </div>
+
+        <!-- Workshop 2 -->
+        <div class="bg-gray-50 p-6 rounded-xl border-l-4 border-green-600 workshop-card">
+          <div class="flex justify-between mb-4">
+            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">September 5-6</span>
+            <span class="text-yellow-600 font-bold">₹5,999</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Quantum Chemistry Applications</h3>
+          <p class="text-gray-600 mb-4">Learn how quantum computing is revolutionizing molecular simulations.</p>
+          <div class="mb-4">
+            <h4 class="font-semibold mb-2">What you'll learn:</h4>
+            <ul class="text-sm text-gray-600 space-y-1">
+              <li>• Molecular Hamiltonian simulation</li>
+              <li>• VQE algorithm implementation</li>
+              <li>• Drug discovery applications</li>
+            </ul>
+          </div>
+          <div class="flex justify-between items-center">
+            <div class="flex items-center text-sm text-gray-500">
+              <i class="fas fa-user-tie mr-1"></i>
+              <span>Prof. Raj Patel</span>
+            </div>
+            <button class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition" onclick="registerWorkshop('quantum-chemistry')">Register</button>
+          </div>
+        </div>
+
+        <!-- Workshop 3 -->
+        <div class="bg-gray-50 p-6 rounded-xl border-l-4 border-purple-600 workshop-card">
+          <div class="flex justify-between mb-4">
+            <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded-full">October 18</span>
+            <span class="text-yellow-600 font-bold">₹3,499</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Quantum Cryptography in Practice</h3>
+          <p class="text-gray-600 mb-4">One-day deep dive into quantum key distribution and post-quantum cryptography.</p>
+          <div class="mb-4">
+            <h4 class="font-semibold mb-2">What you'll learn:</h4>
+            <ul class="text-sm text-gray-600 space-y-1">
+              <li>• Quantum key distribution protocols</li>
+              <li>• Post-quantum cryptography</li>
+              <li>• Security analysis methods</li>
+            </ul>
+          </div>
+          <div class="flex justify-between items-center">
+            <div class="flex items-center text-sm text-gray-500">
+              <i class="fas fa-user-tie mr-1"></i>
+              <span>Dr. Ananya Gupta</span>
+            </div>
+            <button class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition" onclick="registerWorkshop('quantum-crypto')">Register</button>
+          </div>
+        </div>
+
+        <!-- Workshop 4 -->
+        <div class="bg-gray-50 p-6 rounded-xl border-l-4 border-red-600 workshop-card">
+          <div class="flex justify-between mb-4">
+            <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full">November 10-11</span>
+            <span class="text-yellow-600 font-bold">₹6,999</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Building Quantum Circuits</h3>
+          <p class="text-gray-600 mb-4">Hands-on workshop designing and optimizing quantum circuits for real applications.</p>
+          <div class="mb-4">
+            <h4 class="font-semibold mb-2">What you'll learn:</h4>
+            <ul class="text-sm text-gray-600 space-y-1">
+              <li>• Circuit optimization techniques</li>
+              <li>• Error mitigation strategies</li>
+              <li>• Hardware-specific implementations</li>
+            </ul>
+          </div>
+          <div class="flex justify-between items-center">
+            <div class="flex items-center text-sm text-gray-500">
+              <i class="fas fa-user-tie mr-1"></i>
+              <span>Dr. Amit Joshi</span>
+            </div>
+            <button class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition" onclick="registerWorkshop('quantum-circuits')">Register</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-blue-900 mb-8">Workshop Benefits</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div class="p-6">
+          <div class="text-blue-600 mb-4">
+            <i class="fas fa-hands-helping fa-3x"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Hands-on Learning</h3>
+          <p>Work directly with quantum hardware and simulators</p>
+        </div>
+        <div class="p-6">
+          <div class="text-blue-600 mb-4">
+            <i class="fas fa-users fa-3x"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Small Groups</h3>
+          <p>Maximum 15 participants for personalized attention</p>
+        </div>
+        <div class="p-6">
+          <div class="text-blue-600 mb-4">
+            <i class="fas fa-certificate fa-3x"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Certification</h3>
+          <p>Receive industry-recognized completion certificates</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/js/workshops.js"></script>
+</body>
+</html>
